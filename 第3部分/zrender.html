@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>zrender</title>
+    <script src="./js/zrender.js"></script>
+</head>
+<body>
+<div id="zrender" style="width: 800px;height: 800px;"></div>
+<script>
+    const zr = zrender.init(document.getElementById('zrender')); // 初始化一个 zrender 对象
+
+    //    绘制矩形
+    //    设置矩形样式
+    const rect = new zrender.Rect({
+        shape: { // 矩形形状
+            x: 0,
+            y: 0,
+            width: 50,
+            height: 50
+        },
+        style: {
+            fill: 'red',
+            lineWidth: 1
+        }
+    });
+
+    zr.add(rect); //绘制矩形
+
+
+    //    绘制线段
+    // 设置线段样式
+    const line = new zrender.Polyline({
+        shape: {
+            points: [
+                [100, 100],
+                [250, 75],
+                [300, 100]
+            ]
+        },
+        style: {
+            stroke: 'blue',
+            lineWidth: 1,
+        }
+    });
+    zr.add(line); // 绘制线段
+
+
+    //    绘制圆
+    // 设置圆的样式
+    const circle = new zrender.Circle({
+        shape: {
+            cx: 200,
+            cy: 200,
+            r: 50
+        },
+        style: {
+            lineWidth: 2,
+            stroke: 'green',
+            fill: 'red'
+
+        }
+    });
+    zr.add(circle); // 绘制圆
+
+
+    //    绘制点
+    //    设置点的样式
+    const point = new zrender.Polyline({
+        shape: {
+            points: [
+                [300, 300],
+                [301, 301]
+            ]
+
+        },
+        style: {
+            lineWidth: 1,
+            stroke: 'red'
+
+        }
+    });
+    zr.add(point); // 绘制点
+</script>
+</body>
+</html>
