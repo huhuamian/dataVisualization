@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>d3.js</title>
+    <script src="./js/d3.js"></script>
+</head>
+<body>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+
+<button id="datum">datum</button>
+<button id="data">data</button>
+
+<script>
+    const body = d3.select('body'); // 获取d3里的body dom 对象
+    const ps = d3.selectAll('p'); // 获取d3里的所有p标签的 dom 对象
+
+
+    function doDatum() {
+        // console.log('datum');
+        const str = 'test';
+        ps.datum(str);
+
+        ps.text((d, i) => {
+            return `${d}-${i}`;
+        })
+    };
+
+    function doData() {
+        // console.log('data');
+        const datalist = ['html', 'javascript', 'css'];
+        ps.data(datalist).text((d, i) => {
+            return `${d}-${i}`;
+        })
+    };
+
+    document.getElementById('datum').addEventListener('click', (e) => {
+        doDatum();
+    });
+
+    document.getElementById('data').addEventListener('click', (e) => {
+        doData();
+    })
+</script>
+</body>
+</html>
