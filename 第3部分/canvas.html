@@ -5,43 +5,43 @@
     <title>canvas画布</title>
 </head>
 <body>
-    <canvas id="canvas" width="800" height="800"></canvas>
-    <script>
-        const canvas = document.getElementById('canvas');
-        const ctx = canvas.getContext('2d'); // 获取到Canvas对象，开启2d绘图
+<canvas id="canvas" width="800" height="800"></canvas>
+<script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d'); // 获取到Canvas对象，开启2d绘图
 
-        // 绘制矩形
-        ctx.beginPath(); // 开始绘制
-        ctx.fillStyle = 'red'; // 设置填充色为红色
-        ctx.fillRect(0, 0, 50, 50); // 起点坐标0，0 宽度50 高度50
-
-
-        // 绘制直线
-        ctx.beginPath(); // 开始绘制
-        ctx.lineWidth = 1; // 设置线条的宽度
-        ctx.strokeStyle = 'blue'; // 线条填充色
-        ctx.moveTo(100, 100); // 起点坐标
-        ctx.lineTo(250, 75); // 中间点坐标
-        ctx.lineTo(300, 100) // 结束点坐标
-        ctx.stroke(); // 绘制线段
+    // 绘制矩形
+    ctx.beginPath(); // 开始绘制
+    ctx.fillStyle = 'red'; // 设置填充色为红色
+    ctx.fillRect(0, 0, 50, 50); // 起点坐标0，0 宽度50 高度50
 
 
-        // 绘制圆形
-        ctx.beginPath(); // 开始绘制
-        ctx.lineWidth = 2; // 圆形边框的宽度为2
-        ctx.strokeStyle = 'green'; // 边框颜色
-        ctx.fillStyle = 'red'; // 填充色为红色
-        ctx.arc(200, 200,50,0,2*Math.PI); // 圆心坐标位置200，200；半径长度50；开始角度为0，结束角度为2π（360度）
-        ctx.stroke(); // 绘制圆形的边框
-        ctx.fill(); // 绘制圆形的填充色
+    // 绘制直线
+    ctx.beginPath(); // 开始绘制
+    ctx.lineWidth = 1; // 设置线条的宽度
+    ctx.strokeStyle = 'blue'; // 线条填充色
+    ctx.moveTo(100, 100); // 起点坐标
+    ctx.lineTo(250, 75); // 中间点坐标
+    ctx.lineTo(300, 100) // 结束点坐标
+    ctx.stroke(); // 绘制线段
 
-        // 绘制点
-        ctx.beginPath(); // 开始绘制
-        ctx.lineWidth = 1; // 线条宽度
-        ctx.strokeStyle = 'red'; // 线条颜色
-        ctx.moveTo(300,300); // 开始坐标
-        ctx.lineTo(301,301); // 结束坐标
-        ctx.stroke(); // 绘制点  其实点就是一个线段
-    </script>
+
+    // 绘制圆形
+    ctx.beginPath(); // 开始绘制
+    ctx.lineWidth = 2; // 圆形边框的宽度为2
+    ctx.strokeStyle = 'green'; // 边框颜色
+    ctx.fillStyle = 'red'; // 填充色为红色
+    ctx.arc(200, 200, 50, 0, 2 * Math.PI); // 圆心坐标位置200，200；半径长度50；开始角度为0，结束角度为2π（360度）
+    ctx.stroke(); // 绘制圆形的边框
+    ctx.fill(); // 绘制圆形的填充色
+
+    // 绘制点
+    ctx.beginPath(); // 开始绘制
+    ctx.lineWidth = 1; // 线条宽度
+    ctx.strokeStyle = 'red'; // 线条颜色
+    ctx.moveTo(300, 300); // 开始坐标
+    ctx.lineTo(301, 301); // 结束坐标
+    ctx.stroke(); // 绘制点  其实点就是一个线段
+</script>
 </body>
 </html>
