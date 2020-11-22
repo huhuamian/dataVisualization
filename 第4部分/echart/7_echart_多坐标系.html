@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>echart</title>
+    <title>echart_多坐标系</title>
     <script src="./js/echart.js"></script>
     <style>
         #chart {
@@ -17,19 +17,37 @@
     const chartDom = document.getElementById('chart'); // 获取dom对象
     const chart = echarts.init(chartDom); // 初始化一个echart对象 参数一：dom  参数二：主题 参数三：渲染格式
     chart.setOption({ // 添加option设置
-        xAxis: {
-            type: 'category' // 多坐标系的时候要明确指定x轴类型
-        },
+        xAxis:[
+            {
+                type: 'category', // 多坐标系的时候要明确指定x轴类型
+                gridIndex: 0,
+            },
+            {
+                type: 'category',
+                gridIndex: 1
+            }
+        ],
         yAxis: [
             {  // 第一个y轴的横线的显示范围是0到100
                 min: 0,
-                max: 100
+                max: 100,
+                gridIndex: 0
             },
             {
                 splitLine: {
                     show: false, // 不展示第二个坐标轴的横线
-                }
+                },
+                gridIndex: 0
+            },
+            {
+                min: 0,
+                max: 100,
+                gridIndex: 1
             }
+        ],
+        grid: [
+            {bottom: '55%'},
+            {top: '65%'}
         ],
         dataset: {
             source: [ //source 是一个二维数组
@@ -42,12 +60,20 @@
             {
                 type: 'bar',
                 seriesLayoutBy: 'row', // 以行的方式进行取数
+                xAxisIndex: 0, // 横坐标对应第一个纵坐标
                 yAxisIndex: 0, // 纵坐标对应第一个纵坐标
             },
             {
                 type: 'line',
                 seriesLayoutBy: 'row',
+                xAxisIndex: 0, // 横坐标对应第一个纵坐标
                 yAxisIndex: 1
+            },
+            {
+                type: 'bar',
+                seriesLayoutBy: 'row',
+                xAxisIndex: 1, // 横坐标对应第二个纵坐标
+                yAxisIndex: 2
             }
         ]
     })
