@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>echart</title>
+    <script src="./js/echart.js"></script>
+    <style>
+        #chart {
+            width: 800px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+<div id="chart"></div>
+<script>
+    const chartDom = document.getElementById('chart'); // 获取dom对象
+    const chart = echarts.init(chartDom); // 初始化一个echart对象 参数一：dom  参数二：主题 参数三：渲染格式
+    chart.setOption({ // 添加option设置
+        xAxis: {},
+        yAxis: {},
+        dataset: {
+            source: [ //source 是一个二维数组
+                [12, 15],
+                [13, 16],
+                [14, 17],
+                [15, 18],
+                [16, 19],
+                [17, 20],
+
+            ]
+        },
+        series: {
+            type: 'scatter',
+            encode: {x: 0, y: 1}
+        }
+    })
+</script>
+
+</body>
+</html>

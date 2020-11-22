@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>echart</title>
+    <script src="./js/echart.js"></script>
+    <style>
+        #chart {
+            width: 800px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+<div id="chart"></div>
+<script>
+    const chartDom = document.getElementById('chart'); // 获取dom对象
+    const chart = echarts.init(chartDom); // 初始化一个echart对象 参数一：dom  参数二：主题 参数三：渲染格式
+    chart.setOption({ // 添加option设置
+        xAxis: {
+            type: 'category' // 多坐标系的时候要明确指定x轴类型
+        },
+        yAxis: [
+            {  // 第一个y轴的横线的显示范围是0到100
+                min: 0,
+                max: 100
+            },
+            {
+                splitLine: {
+                    show: false, // 不展示第二个坐标轴的横线
+                }
+            }
+        ],
+        dataset: {
+            source: [ //source 是一个二维数组
+                ['product', '2012', '2013', '2014', '2015'],
+                ['Matcha Latte', 41.1, 30.4, 50.2, 30.8],
+                ['Milk Tea', 86.2, 90.3, 88.4, 93.5],
+            ]
+        },
+        series: [
+            {
+                type: 'bar',
+                seriesLayoutBy: 'row', // 以行的方式进行取数
+                yAxisIndex: 0, // 纵坐标对应第一个纵坐标
+            },
+            {
+                type: 'line',
+                seriesLayoutBy: 'row',
+                yAxisIndex: 1
+            }
+        ]
+    })
+</script>
+
+</body>
+</html>
